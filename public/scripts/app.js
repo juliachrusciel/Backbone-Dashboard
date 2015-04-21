@@ -73,5 +73,30 @@ $(document).ready(function(event) {
   var dataNine = { title: "Fourth-quarter", content: "Do, a deer, a female deer.", id: "fourth-quarter"};
   var anotherCard = new quarterCardView(dataNine);
 
+//////////////////////////////////////////////
+
+
+var cardModel = Backbone.Model.extend({
+  initialize: function () {
+    console.log("Hey, a card is here!");
+    this.fetch('/api/cards')
+    this.save('/api/cards/:id' || '/api/cards')
+    this.destroy('/api/cards/:id')
+  }
+});
+
+var cardList = Backbone.Collection.extend({
+  initialize: function () {
+    console.log("Look at that collection!");
+  },
+  model: cardModel,
+  url: "/api/cards",
+});
+
+var newModel = Backbone.Model.extend({
+  initialize: function () {
+    console.log(card_parameters);
+  }
+});
 
 });
